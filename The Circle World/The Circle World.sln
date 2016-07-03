@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{7F9AE077-C627-EEC9-CD76-4817EF2ABAEA}") = "The Circle World", "Assembly-CSharp.csproj", "{2901DAF7-F82E-9359-ACF6-86E2BD6FB0B2}"
+EndProject
+Project("{7F9AE077-C627-EEC9-CD76-4817EF2ABAEA}") = "The Circle World", "Assembly-CSharp-Editor.csproj", "{F862FE34-BC80-C227-F8E4-817DB80BF5EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2901DAF7-F82E-9359-ACF6-86E2BD6FB0B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2901DAF7-F82E-9359-ACF6-86E2BD6FB0B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2901DAF7-F82E-9359-ACF6-86E2BD6FB0B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2901DAF7-F82E-9359-ACF6-86E2BD6FB0B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F862FE34-BC80-C227-F8E4-817DB80BF5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F862FE34-BC80-C227-F8E4-817DB80BF5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F862FE34-BC80-C227-F8E4-817DB80BF5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F862FE34-BC80-C227-F8E4-817DB80BF5EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
