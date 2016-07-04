@@ -45,14 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\External\PauseController\Scripts\AppQuit.cs" />
+     <Compile Include="Assets\External\PauseController\Scripts\IPausable.cs" />
+     <Compile Include="Assets\External\PauseController\Scripts\IQuittable.cs" />
+     <Compile Include="Assets\External\PauseController\Scripts\PauseManager.cs" />
+     <Compile Include="Assets\External\PauseController\Scripts\TimePause.cs" />
      <Compile Include="Assets\Old\ComeraToPlayer.cs" />
-     <Compile Include="Assets\Old\PauseController\Scripts\AppQuit.cs" />
-     <Compile Include="Assets\Old\PauseController\Scripts\IPausable.cs" />
-     <Compile Include="Assets\Old\PauseController\Scripts\IQuittable.cs" />
-     <Compile Include="Assets\Old\PauseController\Scripts\PauseManager.cs" />
-     <Compile Include="Assets\Old\PauseController\Scripts\TimePause.cs" />
      <Compile Include="Assets\Old\Prototype\CharachterControl.cs" />
-     <Compile Include="Assets\Old\Prototype\CrossPlatformInput.cs" />
      <Compile Include="Assets\Old\Prototype\CubeRenderer.cs" />
      <Compile Include="Assets\Old\Prototype\Danger.cs" />
      <Compile Include="Assets\Old\Prototype\MobileInput.cs" />
@@ -65,7 +64,13 @@
      <Compile Include="Assets\Old\QuickCutsceneCreator\Scripts\QuickCutsceneController.cs" />
      <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\Ball.cs" />
      <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\BallUserControl.cs" />
-     <None Include="Assets\Old\PauseController\readme.txt" />
+     <Compile Include="Assets\Scripts\Enemies\GiveDamage.cs" />
+     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\MobileInputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Respawner.cs" />
+     <Compile Include="Assets\Scripts\Other\CameraToPlayer.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
+     <None Include="Assets\External\PauseController\readme.txt" />
      <None Include="Assets\Old\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
