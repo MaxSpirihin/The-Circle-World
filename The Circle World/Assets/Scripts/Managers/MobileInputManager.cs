@@ -2,7 +2,7 @@
 using System.Collections;
 
 /// <summary>
-/// отвечает за ввод
+/// отвечает за ввод с мобильных устройств - код преимущественно взят извне
 /// </summary>
 public class MobileInputManager : MonoBehaviour {
 
@@ -19,93 +19,104 @@ public class MobileInputManager : MonoBehaviour {
         }
     }
 
-
-    private float fingerStartTime = 0.0f;
-    private Vector2 fingerStartPos = Vector2.zero;
-
-    private bool isSwipe = false;
-    private float minSwipeDist = 50.0f;
-    private float maxSwipeTime = 0.5f;
     private Swipe currentSwipe;
-	
-	void Start () {
-	
-	}
-	
-	void Update () {
 
-            foreach (Touch touch in Input.touches)
+    private const int mMessageWidth  = 200;
+    private const int mMessageHeight = 64;
+ 
+    private readonly Vector2 mXAxis = new Vector2(1, 0);
+    private readonly Vector2 mYAxis = new Vector2(0, 1);
+
+    // The angle range for detecting swipe
+    private const float mAngleRange = 30;
+
+    // To recognize as swipe user should at lease swipe for this many pixels
+    private const float mMinSwipeDist = 15.0f; //50
+
+    // To recognize as a swipe the velocity of the swipe
+    // should be at least mMinVelocity
+    // Reduce or increase to control the swipe speed
+    private const float mMinVelocity = 400.0f; //2000
+
+    private Vector2 mStartPosition;
+    private float mSwipeStartTime;
+
+
+
+    void Start()
+    {
+        currentSwipe = Swipe.None;
+    }
+
+    void Update()
+    {
+
+        // Mouse button down, possible chance for a swipe
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Record start time and position
+            mStartPosition = new Vector2(Input.mousePosition.x,
+                                         Input.mousePosition.y);
+            mSwipeStartTime = Time.time;
+        }
+
+        // Mouse button up, possible chance for a swipe
+        if (Input.GetMouseButtonUp(0))
+        {
+            float deltaTime = Time.time - mSwipeStartTime;
+
+            Vector2 endPosition = new Vector2(Input.mousePosition.x,
+                                               Input.mousePosition.y);
+            Vector2 swipeVector = endPosition - mStartPosition;
+
+            float velocity = swipeVector.magnitude / deltaTime;
+
+            if (velocity > mMinVelocity &&
+                swipeVector.magnitude > mMinSwipeDist)
             {
-                switch (touch.phase)
+                // if the swipe has enough velocity and enough distance
+
+                swipeVector.Normalize();
+
+                float angleOfSwipe = Vector2.Dot(swipeVector, mXAxis);
+                angleOfSwipe = Mathf.Acos(angleOfSwipe) * Mathf.Rad2Deg;
+
+                // Detect left and right swipe
+                if (angleOfSwipe < mAngleRange)
                 {
-                    case TouchPhase.Began:
-                        /* this is a new touch */
-                        isSwipe = true;
-                        fingerStartTime = Time.time;
-                        fingerStartPos = touch.position;
-                        break;
-
-                    case TouchPhase.Canceled:
-                        /* The touch is being canceled */
-                        isSwipe = false;
-                        break;
-
-                    case TouchPhase.Ended:
-
-                        float gestureTime = Time.time - fingerStartTime;
-                        float gestureDist = (touch.position - fingerStartPos).magnitude;
-
-                        if (isSwipe && gestureTime < maxSwipeTime && gestureDist > minSwipeDist)
-                        {
-                            Vector2 direction = touch.position - fingerStartPos;
-                            Vector2 swipeType = Vector2.zero;
-
-                            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-                            {
-                                // the swipe is horizontal:
-                                swipeType = Vector2.right * Mathf.Sign(direction.x);
-                            }
-                            else
-                            {
-                                // the swipe is vertical:
-                                swipeType = Vector2.up * Mathf.Sign(direction.y);
-                            }
-
-                            if (swipeType.x != 0.0f)
-                            {
-                                if (swipeType.x > 0.0f)
-                                {
-                                    currentSwipe = Swipe.Right;
-                                    return;
-                                }
-                                else
-                                {
-                                    currentSwipe = Swipe.Left;
-                                    return;
-                                }
-                            }
-
-                            if (swipeType.y != 0.0f)
-                            {
-                                if (swipeType.y > 0.0f)
-                                {
-                                    currentSwipe = Swipe.Up;
-                                    return;
-                                }
-                                else
-                                {
-                                    currentSwipe = Swipe.Down;
-                                    return;
-                                }
-                            }
-
-                        }
-                        break;
+                    currentSwipe = Swipe.Right;
+                    return;
+                }
+                else if ((180.0f - angleOfSwipe) < mAngleRange)
+                {
+                    currentSwipe = Swipe.Left;
+                    return;
+                }
+                else
+                {
+                    // Detect top and bottom swipe
+                    angleOfSwipe = Vector2.Dot(swipeVector, mYAxis);
+                    angleOfSwipe = Mathf.Acos(angleOfSwipe) * Mathf.Rad2Deg;
+                    if (angleOfSwipe < mAngleRange)
+                    {
+                        currentSwipe = Swipe.Up;
+                        return;
+                    }
+                    else if ((180.0f - angleOfSwipe) < mAngleRange)
+                    {
+                        currentSwipe = Swipe.Down;
+                        return;
+                    }
+                    else
+                    {
+                        currentSwipe = Swipe.None;
+                    }
                 }
             }
-            currentSwipe = Swipe.None;
-	}
+        }
 
+        currentSwipe = Swipe.None;
+    }
 
     public static bool GetSwipe(Swipe swipe)
     {

@@ -34,20 +34,10 @@ public class InputManager : MonoBehaviour {
         }
     }
 
-    //тип управления
-    public enum ControlType
-    {
-        PC, Mobile
-    }
-
-    public ControlType controlType;
-	
 	void Start () {
-	
 	}
 	
 	void Update () {
-	
 	}
 
 
@@ -59,7 +49,7 @@ public class InputManager : MonoBehaviour {
             return true;
 
 
-        //ВВОД С pc
+        //ВВОД С пк
         switch (swipe)
         {
             case Swipe.Up:

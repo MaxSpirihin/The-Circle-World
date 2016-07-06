@@ -12,7 +12,6 @@ D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\Unity.UNetWeaver.dll
 D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\Unity.CecilTools.dll
 D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\Mono.Cecil.Mdb.dll
-D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\UnityEngine.xml
 D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\UnityEditor.xml
 D:\Git\The-Circle-World\The Circle World\Temp\bin\Debug\UnityEngine.UI.xml

@@ -9,7 +9,6 @@ public class PauseManager : MonoBehaviour {
 	private bool isPaused = false;
 	private Animator anim;
 	private Component[] pausableInterfaces;
-	private Component[] quittableInterfaces;
 
 	void Start() 
 	{
@@ -21,7 +20,6 @@ public class PauseManager : MonoBehaviour {
 		}
 
 		pausableInterfaces = pausable.GetComponents (typeof(IPausable));
-		quittableInterfaces = pausable.GetComponents (typeof(IQuittable));
 		anim = pauseCanvas.GetComponent<Animator> ();
 
 		pauseCanvas.enabled = false;
@@ -41,19 +39,9 @@ public class PauseManager : MonoBehaviour {
 		anim.SetBool( "IsPaused", isPaused );
 	}
 		
-	public void OnQuit() {
-		Debug.Log ("PauseManager.OnQuit");
-
-		foreach (var quittableComponent in quittableInterfaces) {		
-			IQuittable quittableInterface = (IQuittable)quittableComponent;
-			if( quittableInterface != null )
-				quittableInterface.OnQuit ();
-		}		
-	}
-	
 	public void OnUnPause() {
-		Debug.Log ("PauseManager.OnUnPause");	
 		isPaused = false;
+        MusicPlayer.UnPause();
 
 		foreach (var pausableComponent in pausableInterfaces) {		
 			IPausable pausableInterface = (IPausable)pausableComponent;
@@ -63,8 +51,8 @@ public class PauseManager : MonoBehaviour {
 	}
 
 	public void OnPause() {
-		Debug.Log ("PauseManager.OnPause");
 		isPaused = true;
+        MusicPlayer.Pause();
 
 		foreach (var pausableComponent in pausableInterfaces) {		
 			IPausable pausableInterface = (IPausable)pausableComponent;
