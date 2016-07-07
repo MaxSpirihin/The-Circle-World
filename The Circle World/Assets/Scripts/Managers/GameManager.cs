@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -19,5 +20,11 @@ public class GameManager : MonoBehaviour {
     public void Quit()
     {
         Application.Quit();
+    }
+
+
+    public void Continue()
+    {
+        SceneManager.LoadScene("Level 2");
     }
 }
