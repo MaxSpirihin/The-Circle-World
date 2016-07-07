@@ -4,21 +4,19 @@ using System.Collections;
 
 /// <summary>
 /// изменяем позицию камеры прямо на ходу для красивого перехода
+/// ВНИМАНИЕ - угол наклона первой точки и камеры синхронизируйте вручную
 /// </summary>
 public class CameraInGameChanger : MonoBehaviour {
 
     public QuickCutsceneController path;//катсцена с переходом
     public bool BlockPlayerHorizontal = false;//заблокировать горизонтальное движение игрока при входе
 
-    private CameraToPlayer follower;
     private Transform camera;
     private bool isPlay = false;
 
 
 	void Start () {
         camera = GameObject.FindObjectOfType<Camera>().transform;
-        follower = GetComponent<CameraToPlayer>();
-        follower.enabled = false;
 	}
 	
 
@@ -31,7 +29,7 @@ public class CameraInGameChanger : MonoBehaviour {
                 isPlay = false;
                 camera.GetComponent<CameraToPlayer>().enabled = true;
                 camera.GetComponent<CameraToPlayer>().SetOldPos();
-                follower.enabled = false;
+      //          follower.enabled = false;
             }
         }
 	}
@@ -43,13 +41,17 @@ public class CameraInGameChanger : MonoBehaviour {
         camera.GetComponent<CameraToPlayer>().enabled = false;
         //синхронизируем позиции и активируем катсцену
         path.transform.position = camera.position;
-        path.ActivateCutscene();
-        //катчуена должна ехать
-        follower.enabled = true;
-        follower.SetOldPos();
+        Invoke("StartCS", 0);
         //блокируем игрока если надо
         if (BlockPlayerHorizontal)
             GameObject.FindObjectOfType<PlayerControl>().BlockHorizontal(true);
         isPlay = true;
     }
+
+
+    void StartCS()
+    {
+        path.ActivateCutscene();
+    }
+
 }

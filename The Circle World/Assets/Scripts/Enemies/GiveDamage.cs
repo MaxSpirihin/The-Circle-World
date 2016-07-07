@@ -29,7 +29,7 @@ public class GiveDamage : MonoBehaviour {
             {
                 player.Kill();
                 active = false;
-                Invoke("ReActive", 3f);
+                Invoke("ReActive", 5f);
             }
     }
 

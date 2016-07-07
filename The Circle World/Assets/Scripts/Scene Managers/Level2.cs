@@ -25,13 +25,14 @@ public class Level2 : MonoBehaviour {
 
        player = GameObject.FindObjectOfType<PlayerControl>();
 
-       Invoke("StartDebug", 0);
+      // Invoke("StartDebug", 0);
         
 
-      //  ShowMan.SetTrigger("Talk");
-      //  cameraScript.enabled = false;
-     //   GetComponent<AudioSource>().Play();
-     //   Invoke("StartCS", 0);
+        ShowMan.SetTrigger("Talk");
+        cameraScript.enabled = false;
+        GetComponent<AudioSource>().Play();
+        Subtitler.Play();
+        Invoke("StartCS", 0);
     }
 
     void StartDebug()

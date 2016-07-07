@@ -11,6 +11,7 @@ public class Finisher : MonoBehaviour {
     public string NextLevelName;
     public Animator BlackScreen;
     public float playerSpeedMultiplier = 0.5f;
+    public bool StopCamera = false;
 	
     public void OnTriggerEnter(Collider other)
     {
@@ -21,6 +22,11 @@ public class Finisher : MonoBehaviour {
             BlackScreen.SetBool("black", true);
             MusicPlayer.Stop(1f);
             Invoke("NextLevel", 1.5f);
+
+            if (StopCamera)
+            {
+                GameObject.FindObjectOfType<Camera>().GetComponent<CameraToPlayer>().enabled = false;
+            }
         }
     }
 

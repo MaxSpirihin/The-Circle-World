@@ -10,7 +10,8 @@ using System.Collections;
 public enum PlayerStandartControlType
 {
     Discrete,
-    Continous
+    Continous,
+    None
 }
 
 
@@ -42,7 +43,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     public Transform startPosition;
     
     //приватные константы
-    private const float D_Distance = 0.2f;
+    private const float D_Distance = 0.02f;
     private const float k_GroundRayLength = 0.7f; 
     private const float jumpTime = 0.2f;
     
@@ -100,8 +101,11 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
         m_rigidbody.transform.position = new Vector3(transform.position.x, transform.position.y,
             transform.position.z - AutoSpeedForward * Time.deltaTime * (isDown ? downSpeedMultiplier : 1));
 
+        if (controlType == PlayerStandartControlType.None)
+            return;
+
         //прыжок
-        if (!jump && InputManager.GetSwipe(Swipe.Up) && isGrounded)
+        if (!jump && InputManager.GetSwipe(Swipe.Up) && isGrounded )
         {
             source.PlayOneShot(dashSound);
             jump = true;
