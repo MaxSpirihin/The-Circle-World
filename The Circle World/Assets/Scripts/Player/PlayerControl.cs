@@ -178,16 +178,14 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
         float newX = transform.position.x - C_Speed*Time.deltaTime*InputManager.GetAcceleration(true);
 
 
-        if (newX > RightEdge.position.x)
-           newX = RightEdge.position.x;
+       if (newX > RightEdge.position.x)
+            newX = RightEdge.position.x;
        if (newX < LeftEdge.position.x)
            newX = LeftEdge.position.x;
 
         
-            transform.position = new Vector3(newX, 
-                transform.position.y, transform.position.z);
-
-
+        transform.position = new Vector3(newX, 
+            transform.position.y, transform.position.z);
 
     }
 

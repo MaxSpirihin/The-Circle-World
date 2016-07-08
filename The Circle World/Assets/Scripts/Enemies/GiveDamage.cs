@@ -12,7 +12,13 @@ public class GiveDamage : MonoBehaviour {
     PlayerControl player;
 
     //были проблемы с реагированием несколько раз подряд
-    private bool active = true;
+    private static bool active = true;
+
+    void Awake()
+    {
+        //при перезагрзуке сцены
+        active = true;
+    }
     
     
     void Start () {
@@ -24,7 +30,6 @@ public class GiveDamage : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(gameObject.name);
         if (active)
             if (other.tag == "Player")
             {

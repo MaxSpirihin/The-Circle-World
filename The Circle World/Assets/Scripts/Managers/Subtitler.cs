@@ -20,7 +20,7 @@ public class Subtitler : MonoBehaviour
 
     //Singleton
     private static Subtitler _instance;
-    private static Subtitler Instance
+    public static Subtitler Instance
     {
         get
         {
