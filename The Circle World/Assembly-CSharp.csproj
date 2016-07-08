@@ -76,11 +76,13 @@
      <Compile Include="Assets\Scripts\Other\CameraToPlayer.cs" />
      <Compile Include="Assets\Scripts\Other\CircleManChanger.cs" />
      <Compile Include="Assets\Scripts\Other\CubeRenderer.cs" />
+     <Compile Include="Assets\Scripts\Other\ObjectFadeIn.cs" />
      <Compile Include="Assets\Scripts\Other\OnRespawnReturn.cs" />
      <Compile Include="Assets\Scripts\Other\PathDefinition.cs" />
      <Compile Include="Assets\Scripts\Other\PathFollow.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level2.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level3.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level4.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\MainMenuStarter.cs" />
      <None Include="Assets\External\PauseController\readme.txt" />

@@ -24,7 +24,7 @@ public class MusicPlayer : MonoBehaviour,IRespawnListener {
 
     private AudioSource source;
 
-	void Start()
+	void Awake()
     {
         source = GetComponent<AudioSource>();
     }
