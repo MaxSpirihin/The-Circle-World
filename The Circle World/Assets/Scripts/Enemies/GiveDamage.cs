@@ -24,6 +24,7 @@ public class GiveDamage : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log(gameObject.name);
         if (active)
             if (other.tag == "Player")
             {

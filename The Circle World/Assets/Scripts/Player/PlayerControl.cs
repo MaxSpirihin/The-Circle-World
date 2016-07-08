@@ -197,6 +197,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     /// </summary>
     public void Kill()
     {
+        Debug.Log("Kill");
         //проигрываем анимацию и респавнимся
         move = false;
         camera.enabled = false;
