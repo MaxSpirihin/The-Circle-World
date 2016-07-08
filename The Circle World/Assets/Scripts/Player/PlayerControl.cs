@@ -28,6 +28,11 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     public int D_Max = 1;
     public int D_Min = -1;
 
+    //параметры непрерывного движения
+    public float C_Speed = 2f;
+    public Transform LeftEdge;
+    public Transform RightEdge;
+
     //параметры прыжка
     public float JumpPower = 20;
     public LayerMask maskGround;
@@ -96,6 +101,9 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
         //двигаемся горизонтально
         if (controlType == PlayerStandartControlType.Discrete)
             HorizontalMoveDiscrete();
+        if (controlType == PlayerStandartControlType.Continous)
+            HorizontalMoveContinous();
+
 
         // Двигаемся вперед
         m_rigidbody.transform.position = new Vector3(transform.position.x, transform.position.y,
@@ -154,14 +162,33 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
             if (InputManager.GetSwipe(Swipe.Left) && D_Number > D_Min && !blockHorizontal)
             {
                 D_Number--;
-                source.PlayOneShot(dashSound);
+               // source.PlayOneShot(dashSound);
             }
             if (InputManager.GetSwipe(Swipe.Right) && D_Number < D_Max && !blockHorizontal)
             {
-                source.PlayOneShot(dashSound);
+              //  source.PlayOneShot(dashSound);
                 D_Number++;
             }
         }
+    }
+
+
+    private void HorizontalMoveContinous()
+    {
+        float newX = transform.position.x - C_Speed*Time.deltaTime*InputManager.GetAcceleration(true);
+
+
+        if (newX > RightEdge.position.x)
+           newX = RightEdge.position.x;
+       if (newX < LeftEdge.position.x)
+           newX = LeftEdge.position.x;
+
+        
+            transform.position = new Vector3(newX, 
+                transform.position.y, transform.position.z);
+
+
+
     }
 
 

@@ -65,4 +65,13 @@ public class InputManager : MonoBehaviour {
 
         return false;
     }
+
+
+    public static float GetAcceleration(bool horizontal)
+    {
+        if (Input.acceleration.x != 0)
+            return Input.acceleration.x;
+
+        return Input.GetAxis("Horizontal");
+    }
 }
