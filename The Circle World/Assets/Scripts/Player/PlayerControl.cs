@@ -21,7 +21,18 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     public PlayerStandartControlType controlType;
     public float AutoSpeedForward = 0;
     public AudioClip dashSound;
+    public AudioClip Death;
+    
     public bool blockVerticalMove = false;
+    public bool NotSopMusicOnDead = false;
+    
+
+    //стрельба
+    public bool shot = false;
+    public AudioClip ShotAudio;
+    public GameObject bullet;
+    public Transform bulletPos;
+    public bool CantKill = false;
     
     //параметры дискретного движения
     public float D_Speed = 1f;
@@ -110,6 +121,15 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
         m_rigidbody.transform.position = new Vector3(transform.position.x, transform.position.y,
             transform.position.z - AutoSpeedForward * Time.deltaTime * (isDown ? downSpeedMultiplier : 1));
 
+
+
+        //выстрел
+        if (shot && InputManager.GetShot())
+        {
+            Instantiate(bullet, bulletPos.position, bulletPos.rotation);
+            source.PlayOneShot(ShotAudio);
+        }
+
         if (controlType == PlayerStandartControlType.None || blockVerticalMove)
             return;
 
@@ -142,6 +162,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
             body.Rotate(new Vector3(turnSpeed * Time.deltaTime, 0, 0));
         else if (body.eulerAngles.x > 1 || body.eulerAngles.z > 1)
             body.Rotate(new Vector3(Mathf.Min(turnSpeed * Time.deltaTime,360 -  body.eulerAngles.x), 0, 0));
+
     }
 
 
@@ -196,11 +217,17 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     /// </summary>
     public void Kill()
     {
+        if (CantKill)
+            return;
+
         //проигрываем анимацию и респавнимся
         move = false;
         camera.enabled = false;
         animator.SetTrigger("Dead");
+        if (Death != null)
+            source.PlayOneShot(Death);
         Respawner.Respawn(1.5f);
+        if (!NotSopMusicOnDead)
         MusicPlayer.Stop(1.5f);
     }
 

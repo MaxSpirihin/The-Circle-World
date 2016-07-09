@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class GiveDamage : MonoBehaviour {
 
     PlayerControl player;
+    public bool DestroyOnCollide = false;
 
     //были проблемы с реагированием несколько раз подряд
     private static bool active = true;
@@ -35,7 +36,9 @@ public class GiveDamage : MonoBehaviour {
             {
                 player.Kill();
                 active = false;
-                Invoke("ReActive", 5f);
+                if (DestroyOnCollide)
+                    Destroy(gameObject);
+                Invoke("ReActive", 2.5f);
             }
     }
 

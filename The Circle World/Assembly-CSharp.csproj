@@ -63,7 +63,9 @@
      <Compile Include="Assets\Old\Prototype\MobileInput.cs" />
      <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\Ball.cs" />
      <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\BallUserControl.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Bullet.cs" />
      <Compile Include="Assets\Scripts\Enemies\GiveDamage.cs" />
+     <Compile Include="Assets\Scripts\Enemies\SquareKing.cs" />
      <Compile Include="Assets\Scripts\Managers\Finisher.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\IRespawnListener.cs" />
@@ -76,7 +78,10 @@
      <Compile Include="Assets\Scripts\Other\CameraToPlayer.cs" />
      <Compile Include="Assets\Scripts\Other\CircleManChanger.cs" />
      <Compile Include="Assets\Scripts\Other\CubeRenderer.cs" />
+     <Compile Include="Assets\Scripts\Other\MoveTo.cs" />
      <Compile Include="Assets\Scripts\Other\ObjectFadeIn.cs" />
+     <Compile Include="Assets\Scripts\Other\ObjectFadeOut.cs" />
+     <Compile Include="Assets\Scripts\Other\OnRespawnDelete.cs" />
      <Compile Include="Assets\Scripts\Other\OnRespawnReturn.cs" />
      <Compile Include="Assets\Scripts\Other\PathDefinition.cs" />
      <Compile Include="Assets\Scripts\Other\PathFollow.cs" />
@@ -86,6 +91,7 @@
      <Compile Include="Assets\Scripts\Scene Managers\Level2.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level3.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level8.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level9.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\MainMenuStarter.cs" />
      <None Include="Assets\External\PauseController\readme.txt" />
      <None Include="Assets\Localization\Resources\LocalizationText.xml" />

@@ -22,7 +22,10 @@ public class MusicPlayer : MonoBehaviour,IRespawnListener {
         }
     }
 
+    public bool NotStopMusic = false;
+    
     private AudioSource source;
+
 
 	void Awake()
     {
@@ -57,7 +60,8 @@ public class MusicPlayer : MonoBehaviour,IRespawnListener {
 
     public void OnRespawnEnd()
     {
-        _Play();
+        if (!NotStopMusic)
+            _Play();
     }
 
     public static void Pause()

@@ -74,4 +74,14 @@ public class InputManager : MonoBehaviour {
 
         return Input.GetAxis("Horizontal");
     }
+
+
+    public static bool GetShot()
+    {
+
+        if (Input.GetMouseButtonDown(0))
+            return true;
+
+        return Input.GetButtonDown("Jump");
+    }
 }

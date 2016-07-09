@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 
 	void Awake() {
         LocalizationText.SetLanguage(Application.systemLanguage.ToString().Substring(0, 2).ToUpper());
+
+        Screen.SetResolution(1280, 720, true);
 	}
 
     void Start()
