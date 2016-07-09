@@ -18,7 +18,7 @@ public class FadeInArray
 /// </summary>
 public class Level3 : MonoBehaviour {
 
-    public Animator Player;
+    public Animator Player; 
     public Animator CircleKing;
     public Animator BlackScreen;
     public Animator ShowMan;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct Phrase
@@ -23,10 +24,16 @@ public class Level8 : MonoBehaviour
     public Animator wiseMan;
     public Animator player;
     public Subtitler subtitler;
+    public float playerRotSpeed = 100f;
+    public Transform respawnPoint;
+    public PlayerControl tank;
+    public Animator BlackScreen;
+    public string NextLevelName;
 
     private Transform camera;
     private int currentDialog = 0;
-    private float time = 0;
+    private int State = 0;
+    private bool IsDialog = true;
 
     void Start()
     {
@@ -55,7 +62,53 @@ public class Level8 : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
+        if (!IsDialog)
+        {
+            switch (State)
+            {
+                case 1:
+                    //вращаем персонажа
+                    player.transform.Rotate(new Vector3(0, -playerRotSpeed * Time.deltaTime, 0));
+
+                    if (player.transform.eulerAngles.y < 180)
+                    {
+                        player.transform.rotation = new Quaternion(player.transform.rotation.x, 1,
+                            player.transform.rotation.z, player.transform.rotation.w);
+                        State = 2;
+                        player.GetComponent<PlayerControl>().StartMove();
+                    }
+                    break;
+                case 2:
+                    if (player.transform.position.z < respawnPoint.position.z)
+                    {
+                        player.gameObject.SetActive(false);
+                        State = 3;
+                        tank.gameObject.SetActive(true);
+                        Invoke("State3", 3.5f);
+                    }
+                    break;
+            }
+        }
+    }
+
+    void State3()
+    {
+        tank.StartMove();
+        Invoke("State4", 4f);
+    }
+
+    void State4()
+    {
+        BlackScreen.speed = 0.2f;
+        BlackScreen.SetBool("black", true);
+        MusicPlayer.Stop(1f);
+        Invoke("NextLevel", 1.5f);
+    }
+
+
+    void NextLevel()
+    {
+        SceneManager.LoadScene(NextLevelName);
     }
 
 
@@ -90,15 +143,19 @@ public class Level8 : MonoBehaviour
         currentDialog++;
 
         if (currentDialog < dialog.Length)
-            Invoke("Dialog", dialog[currentDialog].time);
+            Invoke("Dialog", dialog[currentDialog - 1].time);
         else
-            Invoke("End", dialog[currentDialog].time);
+            Invoke("End", dialog[currentDialog - 1].time);
     }
 
 
     void End()
     {
-
+        Subtitler.StopCurrent();
+        IsDialog = false;
+        player.SetTrigger("Default");
+        State = 1;
+        player.SetTrigger("Step");
     }
 
 

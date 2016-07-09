@@ -21,6 +21,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     public PlayerStandartControlType controlType;
     public float AutoSpeedForward = 0;
     public AudioClip dashSound;
+    public bool blockVerticalMove = false;
     
     //параметры дискретного движения
     public float D_Speed = 1f;
@@ -109,7 +110,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
         m_rigidbody.transform.position = new Vector3(transform.position.x, transform.position.y,
             transform.position.z - AutoSpeedForward * Time.deltaTime * (isDown ? downSpeedMultiplier : 1));
 
-        if (controlType == PlayerStandartControlType.None)
+        if (controlType == PlayerStandartControlType.None || blockVerticalMove)
             return;
 
         //прыжок
@@ -195,7 +196,6 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     /// </summary>
     public void Kill()
     {
-        Debug.Log("Kill");
         //проигрываем анимацию и респавнимся
         move = false;
         camera.enabled = false;
