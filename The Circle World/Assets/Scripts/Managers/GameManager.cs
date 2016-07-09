@@ -8,9 +8,13 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : MonoBehaviour {
 
-	void Awake() {
-        LocalizationText.SetLanguage(Application.systemLanguage.ToString().Substring(0, 2).ToUpper());
+    public static int native_width { get; private set; }
+    public static int native_height { get; private set; }
 
+	void Awake() {
+        native_width = Screen.width;
+        native_height = Screen.height;
+        LocalizationText.SetLanguage(Application.systemLanguage.ToString().Substring(0, 2).ToUpper());
         Screen.SetResolution(1280, 720, true);
 	}
 
@@ -27,6 +31,6 @@ public class GameManager : MonoBehaviour {
 
     public void Continue()
     {
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene("Level 8");
     }
 }

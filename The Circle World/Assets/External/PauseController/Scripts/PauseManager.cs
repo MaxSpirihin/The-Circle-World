@@ -2,62 +2,73 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 
-public class PauseManager : MonoBehaviour {
-	public GameObject pausable;
-	public Canvas pauseCanvas;
+public class PauseManager : MonoBehaviour
+{
+    public GameObject pausable;
+    public Canvas pauseCanvas;
 
-	private bool isPaused = false;
-	private Animator anim;
-	private Component[] pausableInterfaces;
+    public bool isPaused { get; private set; }
+    private Animator anim;
+    private Component[] pausableInterfaces;
 
-	void Start() 
-	{
-		// PauseManager requires the EventSystem - make sure there is one
-		if (FindObjectOfType<EventSystem>() == null)
-		{
-			var es = new GameObject("EventSystem", typeof(EventSystem));
-			es.AddComponent<StandaloneInputModule>();
-		}
+    void Start()
+    {
+        isPaused = false;
 
-		pausableInterfaces = pausable.GetComponents (typeof(IPausable));
-		anim = pauseCanvas.GetComponent<Animator> ();
+        // PauseManager requires the EventSystem - make sure there is one
+        if (FindObjectOfType<EventSystem>() == null)
+        {
+            var es = new GameObject("EventSystem", typeof(EventSystem));
+            es.AddComponent<StandaloneInputModule>();
+        }
 
-		pauseCanvas.enabled = false;
-	}
-	
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			if( isPaused ) {
-				OnUnPause();
-			} else {
-				OnPause();
-			}
-		}
+        pausableInterfaces = pausable.GetComponents(typeof(IPausable));
+        anim = pauseCanvas.GetComponent<Animator>();
 
-		pauseCanvas.enabled = isPaused;
-		anim.SetBool( "IsPaused", isPaused );
-	}
-		
-	public void OnUnPause() {
-		isPaused = false;
+        pauseCanvas.enabled = false;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                OnUnPause();
+            }
+            else
+            {
+                OnPause();
+            }
+        }
+
+        pauseCanvas.enabled = isPaused;
+        anim.SetBool("IsPaused", isPaused);
+    }
+
+    public void OnUnPause()
+    {
+        isPaused = false;
         MusicPlayer.UnPause();
 
-		foreach (var pausableComponent in pausableInterfaces) {		
-			IPausable pausableInterface = (IPausable)pausableComponent;
-			if( pausableInterface != null )
-				pausableInterface.OnUnPause ();
-		}
-	}
+        foreach (var pausableComponent in pausableInterfaces)
+        {
+            IPausable pausableInterface = (IPausable)pausableComponent;
+            if (pausableInterface != null)
+                pausableInterface.OnUnPause();
+        }
+    }
 
-	public void OnPause() {
-		isPaused = true;
+    public void OnPause()
+    {
+        isPaused = true;
         MusicPlayer.Pause();
 
-		foreach (var pausableComponent in pausableInterfaces) {		
-			IPausable pausableInterface = (IPausable)pausableComponent;
-			if( pausableInterface != null )
-				pausableInterface.OnPause ();
-		}
-	}
+        foreach (var pausableComponent in pausableInterfaces)
+        {
+            IPausable pausableInterface = (IPausable)pausableComponent;
+            if (pausableInterface != null)
+                pausableInterface.OnPause();
+        }
+    }
 }

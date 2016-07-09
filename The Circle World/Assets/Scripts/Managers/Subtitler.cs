@@ -36,9 +36,7 @@ public class Subtitler : MonoBehaviour
     //нужно вызывать PlayNext() извне
     public bool autoMode = false;
     public Subtitle[] subtitles;
-    
 
-    
     private float timer = 0;
     
     //для автоматического режиима
@@ -59,8 +57,7 @@ public class Subtitler : MonoBehaviour
 
     void Start()
     {
-        textBox.rectTransform.sizeDelta = new Vector2(Screen.width * 0.85f, Screen.height * 0.9f);
-        textBox.fontSize = 20 * Screen.width / 600;
+       
     }
 
     /// <summary>
@@ -68,6 +65,7 @@ public class Subtitler : MonoBehaviour
     /// </summary>
     public static void Play()
     {
+        
         Instance.StartPlay();
     }
 
@@ -89,10 +87,20 @@ public class Subtitler : MonoBehaviour
 
     private void StartPlay()
     {
+        Invoke("_StartPlay", 0.1f);
+
+    }
+
+    private void _StartPlay()
+    {
+        textBox.rectTransform.sizeDelta = new Vector2(Screen.width * 0.85f, Screen.height * 0.88f);
+        textBox.fontSize = 20 * Screen.width / 600;
+
+
         IsPlaying = true;
         timer = 0;
 
-        
+
         if (autoMode)
         {
             //запоминаем моменты времени, когда менять субтитры
@@ -115,7 +123,6 @@ public class Subtitler : MonoBehaviour
             currentSubtitle = -1;
             PlayNext();
         }
-
     }
 
     public void _PlayNext()
@@ -134,6 +141,7 @@ public class Subtitler : MonoBehaviour
 
     void Update()
     {
+
         if (autoMode)
         {
             //управляем автоматическим воспроизведением

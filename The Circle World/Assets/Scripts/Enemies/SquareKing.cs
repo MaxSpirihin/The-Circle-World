@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SquareKing : MonoBehaviour,IRespawnListener {
 
@@ -10,12 +11,15 @@ public class SquareKing : MonoBehaviour,IRespawnListener {
     public Transform RightBullet;
     public GameObject bullet;
     public AudioClip shotAudio;
-    public float shootTime = 1f;
+    public float MinShootTime = 0.3f;
+    public float MaxShootTime = 1.5f;
+
     public int StartLives = 30;
     public GameObject DeathEffect;
+    public string NextLevelName;
 
-
-    private int lives;
+    private float shootTime;
+    public int lives { get; private set; }
     private int State = 0;
     private bool ToRight;
     private float timer = 0;
@@ -28,6 +32,7 @@ public class SquareKing : MonoBehaviour,IRespawnListener {
     public void StartFight()
     {
         State = 1;
+        shootTime = Random.RandomRange(MinShootTime, MaxShootTime);
         lives = StartLives;
         ToRight = true;
     }
@@ -56,6 +61,7 @@ public class SquareKing : MonoBehaviour,IRespawnListener {
             if (timer > shootTime)
             {
                 timer = 0;
+                shootTime = Random.RandomRange(MinShootTime, MaxShootTime);
                 Instantiate(bullet, LeftBullet.position, LeftBullet.rotation);
                 Instantiate(bullet, RightBullet.position, RightBullet.rotation);
                 if (shotAudio != null)
@@ -75,6 +81,7 @@ public class SquareKing : MonoBehaviour,IRespawnListener {
         {
             DeathEffect.SetActive(true);
             GameObject.FindObjectOfType<PlayerControl>().CantKill = true;
+            GameObject.FindObjectOfType<PlayerControl>().controlType = PlayerStandartControlType.None;
             State = 2;
             Invoke("Death", 2.5f);
         }
@@ -84,11 +91,20 @@ public class SquareKing : MonoBehaviour,IRespawnListener {
     void Death()
     {
         GetComponent<ObjectFadeOut>().FadeOut();
+        Invoke("NextLevel", 4f);
+    }
+
+
+    void NextLevel()
+    {
+        SceneManager.LoadScene(NextLevelName);
     }
 
     public void OnRespawn()
     {
         lives = StartLives;
+        shootTime = Random.RandomRange(MinShootTime, MaxShootTime);
+        timer = 0;
     }
 
     public void OnRespawnEnd()

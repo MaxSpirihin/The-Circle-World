@@ -63,6 +63,7 @@
      <Compile Include="Assets\Old\Prototype\MobileInput.cs" />
      <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\Ball.cs" />
      <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\BallUserControl.cs" />
+     <Compile Include="Assets\Scripts\Enemies\BossLiveInfo.cs" />
      <Compile Include="Assets\Scripts\Enemies\Bullet.cs" />
      <Compile Include="Assets\Scripts\Enemies\GiveDamage.cs" />
      <Compile Include="Assets\Scripts\Enemies\SquareKing.cs" />

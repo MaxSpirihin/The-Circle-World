@@ -44,6 +44,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     public float C_Speed = 2f;
     public Transform LeftEdge;
     public Transform RightEdge;
+    public bool UseSqrt = false;
 
     //параметры прыжка
     public float JumpPower = 20;
@@ -103,6 +104,11 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
 
 	void Update () {
 
+        //проверка, не на паузе ли игра
+        PauseManager pauseManager = GameObject.FindObjectOfType<PauseManager>();
+        if (pauseManager != null && pauseManager.isPaused)
+            return;
+
         //обновление аниматора
         bool isGrounded = Physics.Raycast(transform.position, -Vector3.up, k_GroundRayLength, maskGround);
         animator.SetBool("IsGrounded", isGrounded);
@@ -124,7 +130,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
 
 
         //выстрел
-        if (shot && InputManager.GetShot())
+        if (controlType != PlayerStandartControlType.None && shot && InputManager.GetShot())
         {
             Instantiate(bullet, bulletPos.position, bulletPos.rotation);
             source.PlayOneShot(ShotAudio);
@@ -197,7 +203,12 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
 
     private void HorizontalMoveContinous()
     {
-        float newX = transform.position.x - C_Speed*Time.deltaTime*InputManager.GetAcceleration(true);
+        float inp = InputManager.GetAcceleration(true);
+
+        if (UseSqrt)
+            inp = Mathf.Sign(inp) * Mathf.Pow(Mathf.Abs(inp), 0.75f);
+
+        float newX = transform.position.x - C_Speed*Time.deltaTime*inp;
 
 
        if (newX > RightEdge.position.x)
@@ -217,12 +228,15 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     /// </summary>
     public void Kill()
     {
-        if (CantKill)
+        if (CantKill || !move)
             return;
 
         //проигрываем анимацию и респавнимся
         move = false;
-        camera.enabled = false;
+        
+        if (camera != null)
+            camera.enabled = false;
+        
         animator.SetTrigger("Dead");
         if (Death != null)
             source.PlayOneShot(Death);
@@ -265,8 +279,11 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     public void OnRespawnEnd()
     {
         //запуск движения
-        camera.enabled = true;
-        camera.SetOldPos();
+        if (camera != null)
+        {
+            camera.enabled = true;
+            camera.SetOldPos();
+        }
         StartMove();
     }
 }
