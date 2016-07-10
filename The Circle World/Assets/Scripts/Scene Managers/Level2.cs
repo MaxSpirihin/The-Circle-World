@@ -24,15 +24,13 @@ public class Level2 : MonoBehaviour {
 	void Start () {
 
        player = GameObject.FindObjectOfType<PlayerControl>();
-
-      // Invoke("StartDebug", 0);
-        
-
+      
         ShowMan.SetTrigger("Talk");
         cameraScript.enabled = false;
         GetComponent<AudioSource>().Play();
         Subtitler.Play();
-        Invoke("StartCS", 0);
+        cutscene.ActivateCutscene();
+        Invoke("StartCS", 0.1f);
     }
 
     void StartDebug()
@@ -44,7 +42,7 @@ public class Level2 : MonoBehaviour {
 
     void StartCS()
     {
-        cutscene.ActivateCutscene();
+        
     }
 
     void OnCutsceneEnd()

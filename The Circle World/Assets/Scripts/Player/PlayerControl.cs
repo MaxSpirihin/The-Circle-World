@@ -71,7 +71,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
     private CameraToPlayer camera;
     private bool jump = false;
     private bool isDown;
-    private bool move = false;
+    public bool move = false;
     private int D_Number = 0;
     private float D_StartPos;
     private bool blockHorizontal;

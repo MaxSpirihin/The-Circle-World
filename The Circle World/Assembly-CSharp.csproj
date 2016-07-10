@@ -72,8 +72,10 @@
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\IRespawnListener.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\LoadScene.cs" />
      <Compile Include="Assets\Scripts\Managers\MobileInputManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MusicPlayer.cs" />
+     <Compile Include="Assets\Scripts\Managers\PrefSaver.cs" />
      <Compile Include="Assets\Scripts\Managers\Respawner.cs" />
      <Compile Include="Assets\Scripts\Managers\Subtitler.cs" />
      <Compile Include="Assets\Scripts\Other\CameraInGameChanger.cs" />

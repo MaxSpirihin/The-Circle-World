@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Assets.Scripts.gui;
 
 
 
@@ -132,6 +133,7 @@ public class Level10 : MonoBehaviour {
 
     void NextLevel()
     {
+        PrefSaver.SetCompleteLevels(0);
         SceneManager.LoadScene(NextLevelName);
     }
 

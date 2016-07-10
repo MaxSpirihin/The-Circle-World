@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.gui;
 
 
 /// <summary>
@@ -15,7 +16,9 @@ public class GameManager : MonoBehaviour {
         native_width = Screen.width;
         native_height = Screen.height;
         LocalizationText.SetLanguage(Application.systemLanguage.ToString().Substring(0, 2).ToUpper());
-    //    Screen.SetResolution(1280, 720, true);
+     //   PrefSaver.SetCompleteLevels(0);
+        Debug.Log(PrefSaver.GetCompleteLevels());
+        Screen.SetResolution(1280, 720, true);
 	}
 
     void Start()
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour {
 
     public void Continue()
     {
-        SceneManager.LoadScene("Level 1");
+        int level = PrefSaver.GetCompleteLevels();
+        SceneManager.LoadScene("Load_" + (level+1));
     }
 }
