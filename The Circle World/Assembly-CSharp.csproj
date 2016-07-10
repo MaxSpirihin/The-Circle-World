@@ -89,6 +89,7 @@
      <Compile Include="Assets\Scripts\Other\TextureTilingController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level10.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level2.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level3.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level8.cs" />
