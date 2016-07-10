@@ -210,6 +210,9 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
 
     private void HorizontalMoveContinous()
     {
+        if (blockHorizontal)
+            return;
+
         float inp = InputManager.GetAcceleration(true);
 
         if (UseSqrt)

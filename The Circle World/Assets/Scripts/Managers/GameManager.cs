@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
         native_width = Screen.width;
         native_height = Screen.height;
         LocalizationText.SetLanguage(Application.systemLanguage.ToString().Substring(0, 2).ToUpper());
-        Screen.SetResolution(1280, 720, true);
+    //    Screen.SetResolution(1280, 720, true);
 	}
 
     void Start()

@@ -18,6 +18,9 @@ public class Finisher : MonoBehaviour {
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerControl>().AutoSpeedForward *= playerSpeedMultiplier;
+            other.GetComponent<PlayerControl>().shot = false;
+            other.GetComponent<PlayerControl>().BlockHorizontal(true);
+            other.GetComponent<PlayerControl>().blockVerticalMove = true;
             BlackScreen.speed = 0.2f;
             BlackScreen.SetBool("black", true);
             MusicPlayer.Stop(1f);

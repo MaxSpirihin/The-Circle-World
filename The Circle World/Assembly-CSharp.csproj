@@ -1,12 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{2901DAF7-F82E-9359-ACF6-86E2BD6FB0B2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -46,68 +45,68 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\External\PauseController\Scripts\IPausable.cs" />
-    <Compile Include="Assets\External\PauseController\Scripts\PauseManager.cs" />
-    <Compile Include="Assets\External\PauseController\Scripts\TimePause.cs" />
-    <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\Helper\QCBezier.cs" />
-    <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\Helper\QCComponentMember.cs" />
-    <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCAnimationAddon.cs" />
-    <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCLegacyAnimationAddon.cs" />
-    <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCNavigatorAddon.cs" />
-    <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCSceneViewCameraFollow.cs" />
-    <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QuickCutsceneController.cs" />
-    <Compile Include="Assets\Localization\LocalizationText.cs" />
-    <Compile Include="Assets\Localization\TextUpdater.cs" />
-    <Compile Include="Assets\Old\ComeraToPlayer.cs" />
-    <Compile Include="Assets\Old\Prototype\CharachterControl.cs" />
-    <Compile Include="Assets\Old\Prototype\Danger.cs" />
-    <Compile Include="Assets\Old\Prototype\MobileInput.cs" />
-    <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\Ball.cs" />
-    <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\BallUserControl.cs" />
-    <Compile Include="Assets\Scripts\Enemies\BossLiveInfo.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Enemies\GiveDamage.cs" />
-    <Compile Include="Assets\Scripts\Enemies\SquareKing.cs" />
-    <Compile Include="Assets\Scripts\Managers\Finisher.cs" />
-    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\IRespawnListener.cs" />
-    <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\MobileInputManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\MusicPlayer.cs" />
-    <Compile Include="Assets\Scripts\Managers\Respawner.cs" />
-    <Compile Include="Assets\Scripts\Managers\Subtitler.cs" />
-    <Compile Include="Assets\Scripts\Other\CameraInGameChanger.cs" />
-    <Compile Include="Assets\Scripts\Other\CameraToPlayer.cs" />
-    <Compile Include="Assets\Scripts\Other\CircleManChanger.cs" />
-    <Compile Include="Assets\Scripts\Other\CubeRenderer.cs" />
-    <Compile Include="Assets\Scripts\Other\MoveTo.cs" />
-    <Compile Include="Assets\Scripts\Other\ObjectFadeIn.cs" />
-    <Compile Include="Assets\Scripts\Other\ObjectFadeOut.cs" />
-    <Compile Include="Assets\Scripts\Other\OnRespawnDelete.cs" />
-    <Compile Include="Assets\Scripts\Other\OnRespawnReturn.cs" />
-    <Compile Include="Assets\Scripts\Other\PathDefinition.cs" />
-    <Compile Include="Assets\Scripts\Other\PathFollow.cs" />
-    <Compile Include="Assets\Scripts\Other\TextureTilingController.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\Level.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\Level0.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\Level10.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\Level2.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\Level3.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\Level8.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\Level9.cs" />
-    <Compile Include="Assets\Scripts\Scene Managers\MainMenuStarter.cs" />
-    <None Include="Assets\External\PauseController\readme.txt" />
-    <None Include="Assets\Localization\Resources\LocalizationText.xml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Assets\Old\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
+     <Compile Include="Assets\External\PauseController\Scripts\IPausable.cs" />
+     <Compile Include="Assets\External\PauseController\Scripts\PauseManager.cs" />
+     <Compile Include="Assets\External\PauseController\Scripts\TimePause.cs" />
+     <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\Helper\QCBezier.cs" />
+     <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\Helper\QCComponentMember.cs" />
+     <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCAnimationAddon.cs" />
+     <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCLegacyAnimationAddon.cs" />
+     <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCNavigatorAddon.cs" />
+     <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QCSceneViewCameraFollow.cs" />
+     <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\QuickCutsceneController.cs" />
+     <Compile Include="Assets\Localization\LocalizationText.cs" />
+     <Compile Include="Assets\Localization\TextUpdater.cs" />
+     <Compile Include="Assets\Old\ComeraToPlayer.cs" />
+     <Compile Include="Assets\Old\Prototype\CharachterControl.cs" />
+     <Compile Include="Assets\Old\Prototype\Danger.cs" />
+     <Compile Include="Assets\Old\Prototype\MobileInput.cs" />
+     <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\Ball.cs" />
+     <Compile Include="Assets\Old\Standard Assets\Characters\RollerBall\Scripts\BallUserControl.cs" />
+     <Compile Include="Assets\Scripts\Enemies\BossLiveInfo.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Enemies\GiveDamage.cs" />
+     <Compile Include="Assets\Scripts\Enemies\KillableEnemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\SquareKing.cs" />
+     <Compile Include="Assets\Scripts\Managers\Finisher.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\IRespawnListener.cs" />
+     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\MobileInputManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\MusicPlayer.cs" />
+     <Compile Include="Assets\Scripts\Managers\Respawner.cs" />
+     <Compile Include="Assets\Scripts\Managers\Subtitler.cs" />
+     <Compile Include="Assets\Scripts\Other\CameraInGameChanger.cs" />
+     <Compile Include="Assets\Scripts\Other\CameraToPlayer.cs" />
+     <Compile Include="Assets\Scripts\Other\CircleManChanger.cs" />
+     <Compile Include="Assets\Scripts\Other\CubeRenderer.cs" />
+     <Compile Include="Assets\Scripts\Other\MoveTo.cs" />
+     <Compile Include="Assets\Scripts\Other\ObjectFadeIn.cs" />
+     <Compile Include="Assets\Scripts\Other\ObjectFadeOut.cs" />
+     <Compile Include="Assets\Scripts\Other\OnRespawnDelete.cs" />
+     <Compile Include="Assets\Scripts\Other\OnRespawnReturn.cs" />
+     <Compile Include="Assets\Scripts\Other\PathDefinition.cs" />
+     <Compile Include="Assets\Scripts\Other\PathFollow.cs" />
+     <Compile Include="Assets\Scripts\Other\TextureTilingController.cs" />
+     <Compile Include="Assets\Scripts\Player\Accelerometer.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level0.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level10.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level2.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level3.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level8.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\Level9.cs" />
+     <Compile Include="Assets\Scripts\Scene Managers\MainMenuStarter.cs" />
+     <None Include="Assets\External\PauseController\readme.txt" />
+     <None Include="Assets\Localization\Resources\LocalizationText.xml" />
+     <None Include="Assets\Old\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -117,4 +116,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
