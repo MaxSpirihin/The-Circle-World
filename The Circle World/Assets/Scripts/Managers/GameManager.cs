@@ -31,6 +31,6 @@ public class GameManager : MonoBehaviour {
 
     public void Continue()
     {
-        SceneManager.LoadScene("Level 8");
+        SceneManager.LoadScene("Level 1");
     }
 }

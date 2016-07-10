@@ -91,6 +91,13 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
         move = true;
     }
 
+
+    public void StopMove()
+    {
+        animator.SetTrigger("Default");
+        move = false;
+    }
+
     /// <summary>
     /// запретить горизонтальное движение
     /// </summary>
