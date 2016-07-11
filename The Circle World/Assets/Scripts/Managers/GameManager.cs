@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
         native_height = Screen.height;
         LocalizationText.SetLanguage(Application.systemLanguage.ToString().Substring(0, 2).ToUpper());
      //   PrefSaver.SetCompleteLevels(0);
-        Debug.Log(PrefSaver.GetCompleteLevels());
+   //     Debug.Log(PrefSaver.GetCompleteLevels());
         Screen.SetResolution(1280, 720, true);
 	}
 
@@ -36,5 +36,12 @@ public class GameManager : MonoBehaviour {
     {
         int level = PrefSaver.GetCompleteLevels();
         SceneManager.LoadScene("Load_" + (level+1));
+    }
+
+
+    public void NewGame()
+    {
+        PrefSaver.SetCompleteLevels(0);
+        Continue();
     }
 }
