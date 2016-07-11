@@ -143,11 +143,11 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
             source.PlayOneShot(ShotAudio);
         }
 
-        if (controlType == PlayerStandartControlType.None || blockVerticalMove)
+        if (controlType == PlayerStandartControlType.None)
             return;
 
         //прыжок
-        if (!jump && InputManager.GetSwipe(Swipe.Up) && isGrounded )
+        if (!jump && InputManager.GetSwipe(Swipe.Up) && isGrounded && !blockVerticalMove)
         {
             source.PlayOneShot(dashSound);
             jump = true;
@@ -159,7 +159,7 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
 
 
         //прокатка
-        if (InputManager.GetSwipe(Swipe.Down) && !isDown)
+        if (InputManager.GetSwipe(Swipe.Down) && !isDown && !blockVerticalMove)
         {
             source.PlayOneShot(dashSound);
             if (!isGrounded)

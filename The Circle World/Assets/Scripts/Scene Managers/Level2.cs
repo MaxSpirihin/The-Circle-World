@@ -18,16 +18,21 @@ public class Level2 : MonoBehaviour {
     public Transform playerTarget;
     public CameraToPlayer cameraScript;
 
+    public AudioSource musPlayer;
+    public AudioClip levelMusic;
+
     private int currentEvent = 0;
     private int playerMoveMode = 0;
 
 	void Start () {
 
-       player = GameObject.FindObjectOfType<PlayerControl>();
+        player = GameObject.FindObjectOfType<PlayerControl>();
       
         ShowMan.SetTrigger("Talk");
         cameraScript.enabled = false;
-        GetComponent<AudioSource>().Play();
+       // GetComponent<AudioSource>().Play();
+        MusicPlayer.Play();
+        
         Subtitler.Play();
         cutscene.ActivateCutscene();
         Invoke("StartCS", 0.1f);
@@ -50,6 +55,7 @@ public class Level2 : MonoBehaviour {
         GameObject.FindObjectOfType<PlayerControl>().StartMove();
         cameraScript.GetComponent<OnRespawnReturn>().RememberStart();
         cameraScript.enabled = true;
+        musPlayer.clip = levelMusic;
         MusicPlayer.Play();
         cameraScript.SetOldPos();
     }

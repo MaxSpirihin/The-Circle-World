@@ -100,6 +100,7 @@
      <Compile Include="Assets\Scripts\Scene Managers\Level8.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\Level9.cs" />
      <Compile Include="Assets\Scripts\Scene Managers\MainMenuStarter.cs" />
+     <None Include="Assets\Plugins\Android\res\values-ru\strings.xml" />
      <None Include="Assets\External\PauseController\readme.txt" />
      <None Include="Assets\Localization\Resources\LocalizationText.xml" />
      <None Include="Assets\Old\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

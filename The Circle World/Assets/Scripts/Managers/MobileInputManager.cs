@@ -31,7 +31,7 @@ public class MobileInputManager : MonoBehaviour {
     private const float mAngleRange = 30;
 
     // To recognize as swipe user should at lease swipe for this many pixels
-    private const float mMinSwipeDist = 15.0f; //50
+    private float mMinSwipeDist = 8.0f; //50
 
     // To recognize as a swipe the velocity of the swipe
     // should be at least mMinVelocity
@@ -46,7 +46,17 @@ public class MobileInputManager : MonoBehaviour {
     void Start()
     {
         currentSwipe = Swipe.None;
+        Invoke("ChangeSwipeDist",0.1f);
     }
+
+
+    //изменение длины свайпа в зависимости от размера экрана
+    void ChangeSwipeDist()
+    {
+        mMinSwipeDist = mMinSwipeDist * (Screen.width * 1f / GameManager.max_screen_width);
+    }
+
+
 
     void Update()
     {

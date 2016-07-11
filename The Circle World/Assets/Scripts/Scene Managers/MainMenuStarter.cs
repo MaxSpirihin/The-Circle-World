@@ -9,6 +9,7 @@ public class MainMenuStarter : MonoBehaviour {
     public float MoveTime = 2f;
     public Animator screen;
     public Animator AreYouSure;
+    public GameObject BlackScreen;
 
 
     private PlayerControl Player;
@@ -22,13 +23,24 @@ public class MainMenuStarter : MonoBehaviour {
             var es = new GameObject("EventSystem", typeof(EventSystem));
             es.AddComponent<StandaloneInputModule>();
         }
-
+        BlackScreen.SetActive(true);
+        Invoke("BlackScreenLeave", 0.2f);
         Invoke("PlayMenu", MoveTime);
         Invoke("StartMove", 0);
         Player = GameObject.FindObjectOfType<PlayerControl>();
     }
+
+    void BlackScreenLeave()
+    {
+        BlackScreen.SetActive(false);
+    }
 	
 	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject.FindObjectOfType<GameManager>().Quit();
+        }
 	    
 	}
 
