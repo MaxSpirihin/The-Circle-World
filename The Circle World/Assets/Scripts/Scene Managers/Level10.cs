@@ -122,14 +122,10 @@ public class Level10 : MonoBehaviour {
     void State7()
     {
         Subtitler.PlayNext();
-        Invoke("State8", eventTimes[12]);
+        MusicPlayer.Stop(1.5f);
+        Invoke("NextLevel", eventTimes[12]);
     }
 
-    void State8()
-    {
-        Subtitler.StopCurrent();
-        Invoke("NextLevel", eventTimes[13]);
-    }
 
     void NextLevel()
     {

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// враг, убивающийся пулями с нескольких выстрелов
+/// </summary>
 public class KillableEnemy : MonoBehaviour,IRespawnListener {
 
     public int StartLives = 3;
@@ -15,6 +19,9 @@ public class KillableEnemy : MonoBehaviour,IRespawnListener {
 	}
 
 
+    /// <summary>
+    /// при попадании во врага пули
+    /// </summary>
     public void Shot()
     {
         lives--;

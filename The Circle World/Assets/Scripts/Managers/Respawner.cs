@@ -6,7 +6,7 @@ using System;
 
 
 /// <summary>
-/// выполняет ремпавн
+/// выполняет респавн
 /// </summary>
 public class Respawner : MonoBehaviour {
 

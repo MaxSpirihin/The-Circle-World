@@ -3,6 +3,10 @@ using System.Collections;
 using Assets.Scripts.gui;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// экран загрузки уровня
+/// </summary>
 public class LoadScene : MonoBehaviour
 {
     public int levelNumber;

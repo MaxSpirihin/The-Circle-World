@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.gui
 {
+    /// <summary>
+    /// управляет сохранением - перешел из прошлого проекта
+    /// </summary>
     public class PrefSaver
     {
         private const string prefCompleteLevels = "CW_prefCompleteLevels";

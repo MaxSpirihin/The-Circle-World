@@ -49,11 +49,9 @@
      <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\Editor\QCLegacyAnimationAddonEditor.cs" />
      <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\Editor\QCNavigatorAddonEditor.cs" />
      <Compile Include="Assets\External\QuickCutsceneCreator\Scripts\Editor\QuickTakeCutsceneControllerEditor.cs" />
-     <Compile Include="Assets\Old\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\Plugins\Android\res\values-ru\strings.xml" />
      <None Include="Assets\External\PauseController\readme.txt" />
      <None Include="Assets\Localization\Resources\LocalizationText.xml" />
-     <None Include="Assets\Old\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

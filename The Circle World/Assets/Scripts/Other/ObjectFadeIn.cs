@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// позволяет объекту плавно появиться растягиванием scale
+/// </summary>
 public class ObjectFadeIn : MonoBehaviour {
 
     public float time = 0.5f;
@@ -17,6 +21,9 @@ public class ObjectFadeIn : MonoBehaviour {
 	}
 
 
+    /// <summary>
+    /// начать появление
+    /// </summary>
     public void FadeIn()
     {
         isPlay = true;

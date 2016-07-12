@@ -4,7 +4,7 @@ using System.Collections;
 
 
 /// <summary>
-/// упроавляет сценой и уровнем на уровне 4
+/// упроавляет сценой на обычном уровне
 /// </summary>
 public class Level : MonoBehaviour {
 

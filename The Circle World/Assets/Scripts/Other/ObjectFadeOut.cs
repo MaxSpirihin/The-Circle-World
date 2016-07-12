@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
+/// <summary>
+/// позволяет объекту плавно исчезнуть растягиванием scale
+/// </summary>
 public class ObjectFadeOut : MonoBehaviour {
 
     public float time = 0.5f;
@@ -15,7 +20,9 @@ public class ObjectFadeOut : MonoBehaviour {
         Source = transform.localScale;
 	}
 
-
+    /// <summary>
+    /// начать исезание
+    /// </summary>
     public void FadeOut()
     {
         isPlay = true;

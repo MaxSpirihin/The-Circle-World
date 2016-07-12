@@ -3,7 +3,7 @@ using System.Collections;
 
 
 /// <summary>
-/// возвращае объект в начальное положение при респавнне
+/// удаляет объект при респавнне
 /// </summary>
 public class OnRespawnDelete : MonoBehaviour, IRespawnListener {
 

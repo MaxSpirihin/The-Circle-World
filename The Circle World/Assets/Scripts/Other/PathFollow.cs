@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
+/// <summary>
+/// объект следующий по пути PathFollow -  взят извне
+/// </summary>
 public class PathFollow : MonoBehaviour,IRespawnListener
 {
 	

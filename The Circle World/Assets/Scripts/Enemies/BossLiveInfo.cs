@@ -2,6 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// отображает полосу жиней босса
+/// </summary>
 public class BossLiveInfo : MonoBehaviour {
 
 

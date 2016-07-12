@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 
+
+/// <summary>
+/// определение пути из ескольких точек - взят извне
+/// </summary>
 public class PathDefinition : MonoBehaviour
 {
 	public Transform[] Points;
@@ -48,6 +52,10 @@ public class PathDefinition : MonoBehaviour
 		}
 	}
 	
+
+    /// <summary>
+    /// отрисовка пути в редакторе
+    /// </summary>
 	public void OnDrawGizmos()
 	{
 		

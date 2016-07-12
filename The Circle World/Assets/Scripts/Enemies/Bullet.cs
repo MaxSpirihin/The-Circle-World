@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 
 
 /// <summary>
-/// убивает играка при столкновении с ним
+/// убивает врага при столкновении с ним
 /// </summary>
-
 public class Bullet : MonoBehaviour {
 
     public bool isLevel = false;
@@ -20,7 +19,7 @@ public class Bullet : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "FinalBoss")
+        if (other.tag == "FinalBoss")//вначале делал только босс, отсюда нелогичный тег((
         {
             if (!isLevel)
                 GameObject.FindObjectOfType<SquareKing>().Shot();

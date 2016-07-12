@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// убивает играка при столкновении с ним
 /// </summary>
-
 public class GiveDamage : MonoBehaviour {
 
     PlayerControl player;

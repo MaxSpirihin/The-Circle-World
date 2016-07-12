@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// ускоряет игрока по ходу движения
+/// </summary>
 public class Accelerometer : MonoBehaviour, IRespawnListener {
 
     public float acc = 0.1f;

@@ -215,12 +215,12 @@ public class PlayerControl : MonoBehaviour,IRespawnListener {
 
         float inp = InputManager.GetAcceleration(true);
 
+        //для более резкого реагирования в некоторых уровнях используется извлечение корня
         if (UseSqrt)
             inp = Mathf.Sign(inp) * Mathf.Pow(Mathf.Abs(inp), 0.75f);
 
+        //вычисляем новую позицию
         float newX = transform.position.x - C_Speed*Time.deltaTime*inp;
-
-
        if (newX > RightEdge.position.x)
             newX = RightEdge.position.x;
        if (newX < LeftEdge.position.x)

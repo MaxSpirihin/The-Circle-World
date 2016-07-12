@@ -3,8 +3,12 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Level0 : MonoBehaviour {
 
+/// <summary>
+/// упроавляет сценой и уровнем на уровне 1
+/// Качество кода минимальное т.к. это конечный скрипт без переиспользования и я торопился :(
+/// </summary>
+public class Level0 : MonoBehaviour {
 
     public QuickCutsceneController cs;
     public RectTransform image;

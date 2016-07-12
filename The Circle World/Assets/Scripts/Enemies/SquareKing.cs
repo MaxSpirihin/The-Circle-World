@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// последний босс
+/// </summary>
 public class SquareKing : MonoBehaviour,IRespawnListener {
 
     public Transform Left;
